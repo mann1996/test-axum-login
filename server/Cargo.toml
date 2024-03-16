@@ -1,0 +1,18 @@
+[package]
+name = "fihi-server"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75.0"
+authors = ["Patrick Recher <p@tte.io>"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[workspace]
+members = [".", "api", "migration"]
+
+[dependencies]
+fihi-api = { path = "api" }
+
+
+[profile.release]
+strip = true

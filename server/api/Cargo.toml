@@ -1,0 +1,43 @@
+[package]
+name = "fihi-api"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "fihi_api"
+path = "src/lib.rs"
+
+[dependencies]
+axum = { version = "0.7.4", features = ["http2"] }
+dotenvy = "0.15.7"
+hyper = { version = "1.1.0", features = ["full"], optional = true }
+serde = { version = "1.0.196", features = ["derive"] }
+thiserror = "1.0.56"
+tokio = { version = "1.35.1", features = ["full"] }
+tower = "0.4.13"
+tower-http = { version = "0.5.1", features = ["fs"] }
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+uuid = { version = "1.7.0", features = ["v7"] }
+serde_json = "1.0.113"
+chrono = { version = "0.4.34", features = ["serde"] }
+async-graphql = { version = "7.0.2", features = ["chrono", "uuid"] }
+async-graphql-axum = "7.0.2"
+sea-orm = { version = "0.12.14", features = [
+  "sqlx-postgres",
+  "runtime-tokio-rustls",
+] }
+migration = { path = "../migration" }
+
+reqwest = { version = "0.11.25", features = ["json"] }
+oauth2 = "4.4.2"
+axum-login = "0.14.0"
+
+[dependencies.cookie]
+version = "0.18.0"
+features = ["percent-encode"]
+
+[dependencies.time]
+version = "0.3.34"
+features = ["serde"]
